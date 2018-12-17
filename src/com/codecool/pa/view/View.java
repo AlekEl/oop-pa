@@ -100,4 +100,45 @@ public class View {
         }
     }
 
+    public void editMediaitem(Controller controller) {
+        String name;
+        String author;
+        String releaseDate;
+        Mediaitem mediaitem = null;
+
+        System.out.println("Type in id of item you want to edit: ");
+
+        try {
+            int id = input.nextInt();
+            mediaitem = controller.getMediaitemById(id);
+            if(mediaitem != null) {
+                input.nextLine();
+                System.out.println("New name: ");
+                name = input.nextLine();
+                System.out.println("New author: ");
+                author = input.nextLine();
+                System.out.println("New release date: ");
+                releaseDate = input.nextLine();
+                mediaitem.setAuthor(author);
+                mediaitem.setReleaseDate(releaseDate);
+                mediaitem.setName(name);
+                if(mediaitem instanceof PlayableItem) {
+                    System.out.println("New Time: ");
+                    int time = input.nextInt();
+                    ((PlayableItem) mediaitem).setTime(time);
+                } else if(mediaitem instanceof ReadableItem) {
+                    System.out.println("New length: ");
+                    int length = input.nextInt();
+                    ((ReadableItem) mediaitem).setLength(length);
+                }
+            } else {
+                System.out.println("No such id in database!");
+            }
+
+        } catch (InputMismatchException e) {
+            System.out.println("Not a valid data type!");
+        }
+
+    }
+
 }

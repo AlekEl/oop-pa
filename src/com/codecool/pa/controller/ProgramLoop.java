@@ -1,5 +1,6 @@
 package com.codecool.pa.controller;
 
+import com.codecool.pa.model.Mediaitem;
 import com.codecool.pa.view.View;
 
 import java.util.InputMismatchException;
@@ -30,6 +31,9 @@ public class ProgramLoop {
                     break;
                 case 3:
                     view.deleteItemById(controller);
+                    break;
+                case 4:
+                    view.editMediaitem(controller);
                     break;
                 case 5:
                     System.exit(0);

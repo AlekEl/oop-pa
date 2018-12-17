@@ -1,7 +1,10 @@
 package com.codecool.pa;
 
+import com.codecool.pa.controller.ProgramLoop;
+
 public class Mediatheque {
     public static void main(String args[]) {
-        System.out.println("test");
+        ProgramLoop programLoop = new ProgramLoop();
+        programLoop.mainMenu();
     }
 }

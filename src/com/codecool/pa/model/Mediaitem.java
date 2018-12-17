@@ -1,24 +1,22 @@
 package com.codecool.pa.model;
 
 public class Mediaitem {
+    private int id;
     private String name;
     private String author;
     private String releaseDate;
-    private Status status;
+    private boolean isAvailable;
 
     public Mediaitem(String name, String author, String releaseDate) {
+        id = 0;
         this.name = name;
         this.author = author;
         this.releaseDate = releaseDate;
-        this.status = Status.AVAILABLE;
+        this.isAvailable = true;
     }
 
     public void rentOrReturnItem() {
-        if(this.status == Status.AVAILABLE) {
-            this.status = Status.RENTED;
-        } else {
-            this.status = Status.AVAILABLE;
-        }
+        this.isAvailable = !this.isAvailable;
     }
 
     public void setName(String name) {
@@ -45,7 +43,15 @@ public class Mediaitem {
         return releaseDate;
     }
 
-    public Status getStatus() {
-        return status;
+    public boolean getisAvailible() {
+        return isAvailable;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

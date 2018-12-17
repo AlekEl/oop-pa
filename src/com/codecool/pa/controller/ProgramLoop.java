@@ -28,6 +28,9 @@ public class ProgramLoop {
                     itemType = view.askForItemType();
                     view.addMediaItem(controller, itemType);
                     break;
+                case 3:
+                    view.deleteItemById(controller);
+                    break;
                 case 5:
                     System.exit(0);
                 default:

@@ -84,4 +84,20 @@ public class View {
         controller.addMediaitem(mediaitem);
 
     }
+
+    public void deleteItemById(Controller controller) {
+        System.out.println("Type in id of item you want to remove: ");
+        int id;
+        try{
+            id = input.nextInt();
+            if(controller.removeMediaitemById(id)) {
+                System.out.println("Item deleted!");
+            } else {
+                System.out.println("No such id in database!");
+            }
+        } catch (InputMismatchException e) {
+            System.out.println("Not a valid Id");
+        }
+    }
+
 }

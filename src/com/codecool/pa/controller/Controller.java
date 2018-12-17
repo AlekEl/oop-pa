@@ -17,13 +17,15 @@ public class Controller {
         mediaitemList.add(mediaitem);
     }
 
-    public void removeMediaitemById(int id) {
+    public boolean removeMediaitemById(int id) {
         Mediaitem mediaitem = null;
 
         for(Mediaitem mediaitemInList : mediaitemList) {
             if(mediaitemInList.getId() == id) mediaitem = mediaitemInList;
         }
         mediaitemList.remove(mediaitem);
+
+        return mediaitem != null;
     }
 
     public Mediaitem getMediaitemById(int id) {
